@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href = "styles.css">
     <title>3er Corte</title>
 </head>
 <body>
@@ -11,17 +12,26 @@
     <h2>Dependientes</h2>
 
 <table border="1">
+    <!-- SONARLINT: Bug Menor: Las tablas deberían llevar descripciones. A lo mejor quite esto. 
+    Aplicado a todas las tablas. --->
+    <caption>Tabla de datos: DEPENDIENTES</caption>
+    <!-- SONARLINT: Las etiquetas <table> deben estar definidas por <th> para
+        las columnas o filas, dependiendo.
+        Se categoriza como un bug medio. 
+        Esto lo hice con todas las tablas. --->
     <tr>
-        <td>Cédula</td>
-        <td>Nombre</td>
-        <td>Sexo</td>
-        <td>Fecha de Nacimiento</td>
-        <td>Parentesco</td>
+        <th scope="col">Cédula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Fecha de Nacimiento</th>
+        <th scope="col">Parentesco</th>
     </tr>
 
 
     <!--- TABLA DEPENDIENTE ---->
     <?php 
+   
+
     #Declaro una variable $base para no repetir tanto.
     $base = "personas";
     
@@ -36,7 +46,15 @@
     /*Cambiado de "mysqli_select_db($link, "dependientes");"
     La anterior iteración estaba seleccionando una **base de datos** inexistente "dependientes", no la tabla.*/
     mysqli_select_db($link, $base);
-    $tildes = $link->query("SET NAMES 'utf8'");
+
+    #SONARLINT: Definir una constante para no repetir código inecesario.
+    #Categorizado como bug menor de tipo "limpieza".
+    #Aplicado a los todas las siguientes.
+    #Hay otro error de este tipo que no he podido solucionar en "<br/>No hay más datos. <br/>"
+    $nameset = "SET NAMES 'utf8'";
+    $tildes = $link->query($nameset);
+
+
 
 
     mysqli_query($link, "INSERT INTO dependiente VALUES ('78900456',	'Juanita',	'F',	'12-Abr-95',	'Hija')");
@@ -68,10 +86,11 @@
 
 <h2>Departamentos</h2>
 <table border="1">
+<caption>Tabla de datos: DEPARTAMENTOS</caption>
     <tr>
-        <td>Código del Departamento</td>
-        <td>Nombre</td>
-        <td>Cédula del Jefe</td>
+        <th scope="col">Código del Departamento</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cédula del Jefe</th>
     </tr>
 
 <!--- TABLA DEPARTAMENTOS ---->
@@ -81,7 +100,7 @@
     $link = mysqli_connect("localhost", "root", "", "personas");
 
     mysqli_select_db($link, $base);
-    $tildes = $link->query("SET NAMES 'utf8'");
+    $tildes = $link->query($nameset);
 
 
     mysqli_query($link, "INSERT INTO departamento VALUES ('0',	'Gerencia',	'43890231')");
@@ -110,11 +129,12 @@
 <!--- TABLA PROYECTOS ---->
 <h2>Proyectos</h2>
 <table border="1">
+<caption>Tabla de datos: PROYECTOS</caption>
     <tr>
-        <td>Número</td>
-        <td>Nombre</td>
-        <td>Lugar</td>
-        <td>Código del Departamento</td>
+        <th scope="col">Número</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Lugar</th>
+        <th scope="col">Código del Departamento</th>
     </tr>
 
     <?php 
@@ -122,7 +142,7 @@
     $link = mysqli_connect("localhost", "root", "", "personas");
 
     mysqli_select_db($link, $base);
-    $tildes = $link->query("SET NAMES 'utf8'");
+    $tildes = $link->query($nameset);
 
 
     mysqli_query($link, "INSERT INTO proyecto VALUES ('129001', 'Registro y Matrícula',	'Bloque 21',	'2')");
@@ -156,10 +176,11 @@
 <!--- TABLA TRABAJADORES ---->
 <h2>Trabajadores</h2>
 <table border="1">
+<caption>Tabla de datos: TRABAJADORES</caption>
     <tr>
-        <td>Cédula</td>
-        <td>Nombre</td>
-        <td>Salario</td>
+        <th scope="col">Cédula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Salario</th>
     </tr>
 
     <?php 
@@ -167,7 +188,7 @@
     $link = mysqli_connect("localhost", "root", "", "personas");
 
     mysqli_select_db($link, $base);
-    $tildes = $link->query("SET NAMES 'utf8'");
+    $tildes = $link->query($nameset);
 
 
     mysqli_query($link, "INSERT INTO trabajadores VALUES ('26696857',	'Katherine García',	'3000')");
