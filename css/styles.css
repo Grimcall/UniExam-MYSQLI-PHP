@@ -1,0 +1,66 @@
+
+
+
+/* SIDE BAR */
+.side-bar{
+    margin:0;
+    padding: 0;
+    width: 155px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(15,15,15);
+    
+}
+
+    .side-bar a{
+        color: white;
+        text-align: left;
+        display: block;
+        padding: 16px;
+        text-decoration: none;
+        font-size: 0.8em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+     /* Anims SideBar */
+    
+    .side-bar a:hover{
+        background-color: black;
+        border-left: 5px solid #424eff;
+        transition:
+            all 0.25s ease-out;
+    }
+
+    #active{
+        color: white;
+        background-color: #424eff;
+
+    }
+
+/* Contenido de pag proporcional */    
+div.content {
+    margin-left: 155px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+/*En pantallas menores a  700px, la sidebar es topbar. */
+@media screen and (max-width: 700px) {
+    .side-bar{
+        width: 100%;
+        height: auto;
+        position: relative;
+
+    }
+    .side-bar a {float:left;}
+    div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px){
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+
+}

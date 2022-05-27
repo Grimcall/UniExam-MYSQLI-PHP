@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet" href = "styles.css">
-    <title>3er Corte</title>
-</head>
-<body>
+<title>3er Corte - Grupo 3</title>
+
+<!-- RWB -->
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content ="width=device-width, initial-scale = 1">
+    <meta http-equiv="X-UA-Compatible" content = "ie-edge">
+<!-- CSS Links -->
+    <link rel = "stylesheet" href = "css/styles.css">
+    <link rel = "stylesheet" href = "css/normalize.css">
+    <link rel = "stylesheet" href = "css/all.min.css">
+
+    </head>
+    <!-- SideBar --->
+    <div class = "side-bar">
+    
+    <header><img id = "logo_unefa" alt = "Logo Unefa" src = "img/logo_unefa.png" width = "100%"></header>
+    <a id = "active" href ="#"><i class="fa-solid fa-house-user"></i> INICIO</a>
+    <a href = "nosotros.html"><i class="fa-solid fa-circle-info"></i> NOSOTROS</a>
+
+</div>
+
+
+<div class = "content">
+
     <h1>Base de Datos: Personas</h1>
     <h2>Dependientes</h2>
 
+
+
 <table border="1">
+
     <!-- SONARLINT: Bug Menor: Las tablas deberían llevar descripciones. A lo mejor quite esto. 
     Aplicado a todas las tablas. --->
+
     <caption>Tabla de datos: DEPENDIENTES</caption>
     <!-- SONARLINT: Las etiquetas <table> deben estar definidas por <th> para
         las columnas o filas, dependiendo.
@@ -53,9 +74,6 @@
     #Hay otro error de este tipo que no he podido solucionar en "<br/>No hay más datos. <br/>"
     $nameset = "SET NAMES 'utf8'";
     $tildes = $link->query($nameset);
-
-
-
 
     mysqli_query($link, "INSERT INTO dependiente VALUES ('78900456',	'Juanita',	'F',	'12-Abr-95',	'Hija')");
     mysqli_query($link, "INSERT INTO dependiente VALUES ('23423445',	'Hector',	'M',	'23-Dic-67',	'Cónyuge')");
@@ -102,7 +120,6 @@
     mysqli_select_db($link, $base);
     $tildes = $link->query($nameset);
 
-
     mysqli_query($link, "INSERT INTO departamento VALUES ('0',	'Gerencia',	'43890231')");
     mysqli_query($link, "INSERT INTO departamento VALUES ('1',	'Teleinformática',	'75556734')");
     mysqli_query($link, "INSERT INTO departamento VALUES ('2',	'Desarrollo',	'23423445')");
@@ -143,7 +160,6 @@
 
     mysqli_select_db($link, $base);
     $tildes = $link->query($nameset);
-
 
     mysqli_query($link, "INSERT INTO proyecto VALUES ('129001', 'Registro y Matrícula',	'Bloque 21',	'2')");
     mysqli_query($link, "INSERT INTO proyecto VALUES ('139001', 'Red Lan',	'Bloque 14',	'1')");
@@ -190,7 +206,6 @@
     mysqli_select_db($link, $base);
     $tildes = $link->query($nameset);
 
-
     mysqli_query($link, "INSERT INTO trabajadores VALUES ('26696857',	'Katherine García',	'3000')");
     mysqli_query($link, "INSERT INTO trabajadores VALUES ('26671334',	'Diego Parra',	'2500')");
     mysqli_query($link, "INSERT INTO trabajadores VALUES ('26671842',	'José García',	'1200')");
@@ -232,5 +247,5 @@
 </table>
 
 
-</body>
+</div>
 </html>
