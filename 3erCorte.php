@@ -19,11 +19,23 @@
         <td>Parentesco</td>
     </tr>
 
+
+    <!--- TABLA DEPENDIENTE ---->
     <?php 
-    $link = mysqli_connect("localhost", "root", "", "personas");
+    #Declaro una variable $base para no repetir tanto.
+    $base = "personas";
+    
+    #Antes, me lanzaba error porque supuestamente pedía contraseña. 
+    #$link = mysqli_connect("localhost", "root", " ", $base);
+    #                                           ^^^^^
+    #Tienen que estar pegadas las tildes para que cuente como un vacío, así "".
+
+    $link = mysqli_connect("localhost", "root", "", $base);
 
     
-    mysqli_select_db($link, "dependiente");
+    /*Cambiado de "mysqli_select_db($link, "dependientes");"
+    La anterior iteración estaba seleccionando una **base de datos** inexistente "dependientes", no la tabla.*/
+    mysqli_select_db($link, $base);
     $tildes = $link->query("SET NAMES 'utf8'");
 
 
@@ -62,10 +74,13 @@
         <td>Cédula del Jefe</td>
     </tr>
 
+<!--- TABLA DEPARTAMENTOS ---->
     <?php 
-    $link = mysqli_connect("localhost", "root", " ", "personas");
 
-    mysqli_select_db($link, "departamento");
+    #Mismos cambios que en la sección de TABLA DEPENDIENTE.
+    $link = mysqli_connect("localhost", "root", "", "personas");
+
+    mysqli_select_db($link, $base);
     $tildes = $link->query("SET NAMES 'utf8'");
 
 
@@ -92,6 +107,7 @@
 ?>
 </table>
 
+<!--- TABLA PROYECTOS ---->
 <h2>Proyectos</h2>
 <table border="1">
     <tr>
@@ -102,9 +118,10 @@
     </tr>
 
     <?php 
-    $link = mysqli_connect("localhost", "root", " ", "personas");
+    #Mismos cambios que en la tabla DEPENDIENTE, DEPARTAMENTOS
+    $link = mysqli_connect("localhost", "root", "", "personas");
 
-    mysqli_select_db($link, "proyecto");
+    mysqli_select_db($link, $base);
     $tildes = $link->query("SET NAMES 'utf8'");
 
 
@@ -135,6 +152,8 @@
     mysqli_free_result($result); mysqli_close($link);
 ?>
 </table>
+
+<!--- TABLA TRABAJADORES ---->
 <h2>Trabajadores</h2>
 <table border="1">
     <tr>
@@ -144,9 +163,10 @@
     </tr>
 
     <?php 
-    $link = mysqli_connect("localhost", "root", " ", "personas");
+    #Mismos cambios que en todas las tablas anteriores.
+    $link = mysqli_connect("localhost", "root", "", "personas");
 
-    mysqli_select_db($link, "trabajadores");
+    mysqli_select_db($link, $base);
     $tildes = $link->query("SET NAMES 'utf8'");
 
 
