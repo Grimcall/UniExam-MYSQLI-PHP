@@ -1,4 +1,39 @@
 
+/* TABLES */
+table, th, td{
+   /* border: 1px solid; */
+    border-collapse: collapse;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+th, td{
+    padding: 15px;
+
+    
+}
+
+tr{
+    text-transform: capitalize;
+}
+
+th{
+    background-color: #424eff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+table{
+margin: auto;
+width: 50%;
+
+}
+
+ tr:nth-child(odd){
+     background-color: #cbd4ff
+ }
 
 
 /* SIDE BAR */
@@ -43,6 +78,8 @@ div.content {
     margin-left: 155px;
     padding: 1px 16px;
     height: 1000px;
+
+
 }
 
 /*En pantallas menores a  700px, la sidebar es topbar. */
@@ -63,4 +100,18 @@ div.content {
         float: none;
     }
 
+}
+
+/*H1, H2*/
+h1{
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 span{
+    color : #424eff;
 }

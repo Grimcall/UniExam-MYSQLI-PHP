@@ -25,12 +25,13 @@
 
 <div class = "content">
 
-    <h1>Base de Datos: Personas</h1>
+    <h1>Base de Datos: Personas<span> /</span></h1>
     <h2>Dependientes</h2>
 
 
+<div style="overflow-x:auto;">
 
-<table border="1">
+<table>
 
     <!-- SONARLINT: Bug Menor: Las tablas deberían llevar descripciones. A lo mejor quite esto. 
     Aplicado a todas las tablas. --->
@@ -100,11 +101,17 @@
     while ($fila = mysqli_fetch_array($result)){ mostrarDatos($fila); }
     mysqli_free_result($result); mysqli_close($link);
 ?>
+
 </table>
+</div>
+
 
 <h2>Departamentos</h2>
-<table border="1">
+
+<div style="overflow-x:auto;">
+<table>
 <caption>Tabla de datos: DEPARTAMENTOS</caption>
+
     <tr>
         <th scope="col">Código del Departamento</th>
         <th scope="col">Nombre</th>
@@ -142,10 +149,12 @@
     mysqli_free_result($result); mysqli_close($link);
 ?>
 </table>
+</div>
 
 <!--- TABLA PROYECTOS ---->
 <h2>Proyectos</h2>
-<table border="1">
+<div style="overflow-x:auto;">
+<table>
 <caption>Tabla de datos: PROYECTOS</caption>
     <tr>
         <th scope="col">Número</th>
@@ -188,10 +197,13 @@
     mysqli_free_result($result); mysqli_close($link);
 ?>
 </table>
+</div>
 
 <!--- TABLA TRABAJADORES ---->
 <h2>Trabajadores</h2>
-<table border="1">
+
+<div style="overflow-x:auto;">
+<table>
 <caption>Tabla de datos: TRABAJADORES</caption>
     <tr>
         <th scope="col">Cédula</th>
@@ -227,6 +239,7 @@
         <?php
         }else {echo "<br/>No hay más datos. <br/>";}
     }
+    
     $result = mysqli_query($link, "SELECT DISTINCT* FROM trabajadores");
     while ($fila = mysqli_fetch_array($result)){ mostrarDa($fila); }
     
@@ -245,7 +258,6 @@
     mysqli_free_result($result); mysqli_close($link);
         ?>
 </table>
-
-
+</div>
 </div>
 </html>
